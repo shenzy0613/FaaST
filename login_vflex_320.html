@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Vendor Flex</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Material Design fonts -->
+  
+
+  <!-- Bootstrap -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Material Design -->
+  <link href="dist/css/bootstrap-material-design_320.css" rel="stylesheet">
+  <!-- <link href="dist/css/ripples.min.css" rel="stylesheet"> -->
+
+  <!-- Dropdown.js -->
+  <link href="jquery.dropdown.css" rel="stylesheet">
+
+  <!-- Page style -->
+  <link href="index.css" rel="stylesheet">
+  <link href="vendorFlex_320.css" rel="stylesheet">
+  <link href="login_vflex_320.css" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="jquery-1.12.1.min.js"></script>
+  
+
+</head>
+<body>
+  <div class="nav-flex">
+    <div class="navbar navbar-default" id="navbar">
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li id="menu-btn"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/ic_menu_black_36px.svg"></a></li>
+          </ul>
+          <a class="navbar-brand" id="app-title">Vendor Flex</a>
+          <a class="navbar-menu" id="app-menu">Menu</a>
+          <ul class="nav navbar-nav navbar-right" >
+            <li class="dropdown" id="navbar-right">
+              <a href="javascript:void(0)" class="btn btn-raised btn-tertiary dropdown-toggle" data-target="#" data-toggle="dropdown"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Problem.svg"></a>
+              <ul class="dropdown-menu">
+                <li><a href="javascript:void(0)">Action</a></li>
+                <li><a href="javascript:void(0)">Another action</a></li>
+                <li><a href="javascript:void(0)">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </div>
+
+    <div id="danger-alert" class="alert alert-dismissible alert-danger">
+        <strong>Incorrect login.</strong> Try again.
+    </div>
+    <div id="success-alert" class="alert alert-dismissible alert-success">
+      <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/ic_done_white_32px.svg"><strong><span id="alert-success-message"> Cart setup complete<span></strong>
+    </div>
+    <div id="info-alert" class="alert alert-dismissible alert-info">
+      You are assigned to <strong>Pick</strong>.
+    </div>
+    <div class="progress" id="main-progress">
+      <div class="progress-bar progress-bar-info" id="main-progress-bar" style="width: 0%"></div>
+    </div>
+    <div class="large-error-alert" style="display: none;">
+      <h4>The quantity should be <br><strong><span id="alert-product-quantity">2</span> items</strong></h4>
+      <p><strong>ITEM</strong><br><span id="alert-product-name">Coca-Cola, Mexican Coke 12oz (355ml), ……Pack of 6</span></p>
+      <div class="bottom pick-complete-continue">
+        <a href="javascript:void(0)" class="btn btn-raised btn-primary" style="width: 100%; max-width: 500px;" id="reenterQuantity">Re-enter quantity</a>
+        <br>
+        <a href="javascript:void(0)" class="btn btn-raised btn-secondary" style="width: 100%; max-width: 500px;">Missing item</a>
+      </div>
+    </div>
+    <audio id="audiotag1" src="audio/success.wav" preload="auto"></audio>
+    <audio id="audiotag2" src="audio/confirmation.wav" preload="auto"></audio>
+    <audio id="audiotag3" src="audio/attention.wav" preload="auto"></audio>
+    <audio id="audiotag4" src="audio/error.wav" preload="auto"></audio>
+    <audio id="audiotag5" src="audio/severe-error.wav" preload="auto"></audio>
+  </div>
+  <div sytle="" id="login-main">
+    <div id="screen-size" style="position: fixed; right: 0px; bottom: 0px; color: #CCC;">
+    </div>
+    <div id="menu">
+      <ul class="nav nav-stacked flexMenu" id="main-menu">
+        <li class="menu-btn"><a href="javascript:void(0)" class="btn btn-raised btn-problem"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Problem_White.svg">  Report problem</a>
+        </li>
+        <li class="menu-divider"></li>
+        <li class="menu-normal"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/MainTasks.svg"> Main Tasks<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-normal"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Inbound.svg"> Inbound<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-normal" id="outbound"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Outbound.svg"> Outbound<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-normal" id="inventory"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Inventory.svg"> Inventory<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-normal" id="alltasks"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/AllTasks.svg"> All tasks<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-divider"></li>
+        <li class="menu-normal" id="settings"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Settings_FaaST.svg"> Your settings<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-normal" id="signout"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Signout_FaaST.svg"> Sign out</a></li>
+        
+      </ul>
+      <ul class="nav nav-stacked flexMenu" id="menu-outbound">
+        <li class="menu-normal"><a href="javascript:void(0)" id="menu-more-tasks"><i class="material-icons">chevron_left</i> More Tasks</a></li>
+        <li class="menu-normal menu-half" id="pick"><a href="javascript:void(0)">Pick</a><span class="badge">50</span></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Unpack totes</a><span class="badge warning"></span></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">SLAM</a><span class="badge"></span></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Check tote</a><span class="badge"></span></li>
+      </ul>
+      <ul class="nav nav-stacked flexMenu" id="menu-settings">
+        <li class="menu-normal" id="settings-menu-back"><a href="javascript:void(0)"><i class="material-icons">chevron_left</i> Back</a></li>
+        <li class="menu-normal" id="settings-language"><a href="javascript:void(0)">Choose language<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-normal"><a href="javascript:void(0)">Choose work preference<i class="material-icons navbar-right">navigate_next</i></a></li>
+        
+      </ul>
+      <ul class="nav nav-stacked flexMenu" id="menu-languages">
+        <li class="menu-normal" id="languages-menu-back"><a href="javascript:void(0)" ><i class="material-icons">chevron_left</i> Back</a></li>
+        <li class="menu-normal menu-half highlighted" id="english"><a href="javascript:void(0)">English</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Español</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Français</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Deutsche</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Pусский</a></li>
+        <li class="menu-normal menu-half" onclick="location.href='login_simplifiedChinese.html';"><a href="javascript:void(0)">简体中文</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">日本語</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Italiano</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Polski</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Čeština</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">हिंदी</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Português</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">မြန်မာ</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">English (UK)</a></li>
+      </ul>
+      <ul class="nav nav-stacked flexMenu" id="menu-alltasks">
+        <li class="menu-normal" id="alltasks-menu-back"><a href="javascript:void(0)" ><i class="material-icons">chevron_left</i> Back</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Blind cycle count</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Bulk move</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Check tote</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Cubiscan</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Damage out item</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">ISS stow</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Manage pallet</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Move items to cubiscan</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">New to dock</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Pick</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Received by merchant</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Receive by Ppllet</a></li>
+      </ul>
+      <ul class="nav nav-stacked flexMenu" id="menu-inventory">
+        <li class="menu-normal" id="inventory-menu-back"><a href="javascript:void(0)" ><i class="material-icons">chevron_left</i> Back</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Simple bin count</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Blind cycle count</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Damage out item</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Removal tool</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Tote diagnostic</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Bulk move</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Move items to cubiscan</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">ISS stow</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Cubiscan</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)"></a></li>
+      </ul>
+    </div>
+    <div class="col-md-3 " id="left-col">
+      <div id="menuArrowCol">
+        <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/MenuArrow.svg" id="menuArrow">
+        <h2 id="menuArrowText">Select a task from<br>the Main Menu</h2>
+      </div>
+    </div>
+    <div class="col-md-6" id="main-screen" style="text-align: center; padding: 0px 15px;">
+      <div id="screen-size" style="position: fixed; right: 0px; bottom: 0px; color: #CCC;">
+      </div>
+      <div style="max-width: 500px; margin:auto;">
+        <div id="login" style="text-align: center;">
+          <h4 id="sign-in-title">Sign in with your<br><strong>Amazon.com account</strong></h4>
+          <div style="width: 100%">
+            <form class="form-group label-floating is-focused" id="form">
+              <input class="form-control" id="Input1" placeholder="Email" type="text">
+              <input class="form-control" id="pw1" placeholder="Password" type="password">
+              <input href="javascript:void(0)" class="btn btn-raised btn-primary" style="width: 100%" id="SignIn" type="submit" value="Sign in">
+            </form>
+          </div>
+          <span><h5><a href="javascript:void(0)">Reset password</a> &nbsp;&nbsp; <a href="javascript:void(0)">Create account</a></h5> </span>
+        </div>
+
+        <div id="login-photo">
+          <h4>Hello, <strong>Name</strong></h4>
+          <div style="width: 160px; margin: auto;">
+            <div class="progress login-progress">
+              <div class="progress-bar progress-bar-info" id="progress-bar" style="width: 0%"></div>
+            </div>
+            <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/profilephoto.svg" >
+          </div>
+        </div>
+
+        <div id="sign-out-confirm" style="text-align: center;">
+          <h1>Are you sure you want to sign out?</h1>
+          <div class="bottom" id="sign-out-confirm-btn">
+            <a href="javascript:void(0)" class="btn btn-raised btn-primary" style="width: 100%" id="yes-sign-out">Yes, sign out</a>
+            <a href="javascript:void(0)" class="btn btn-raised btn-secondary" style="width: 100%" id="no-sign-out">Cancel</a>
+          </div>
+        </div>
+
+        
+        <div id="pick-cart-scan" style="display: none;">
+          <h3 class="title">Scan <strong>pick cart</strong></h3>
+          <div class="scan-target">
+            <div id="pick-cart-scan-barcode" class="barcode-tag">
+              <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/barcode_FaaST.png">
+              <img class="barcode-tag-scan" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/scan_FaaST.png">
+            </div>
+          </div>
+        </div>
+
+        <div id="bin-scan" style="display: none;">
+          <h3 class="title">Scan <strong>bin</strong></h3>
+          <div id="bin-scan-qrcode" class="scan-target">
+            <div class="aisle">
+              <div class="aisle-number">
+                B<strong><span class="asile-number-digit">17</span></strong>
+              </div>
+              <div class="tag">Aisle</div>
+            </div>
+            <div class="bin">
+              <img class="bin-bin" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/qrCode_FaaST.png">
+              <div class="bin-number">
+                D<strong><span class="bin-number-digit">260</span></strong>
+              </div>
+              <div style="height: 0px;">
+                <img class="bin-scan" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/scan_FaaST.png">
+              </div>
+              <div class="tag">Bin</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="item-scan" style="display: none;">
+          <h3 class="title">Scan <strong>item</strong></h3>
+          <img id="item-scan-pic" class="product-pic" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/pick-1.jpg"></img><br>
+          <img class="item-scan-barcode" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/ItemBarcode.png">
+          <img class="item-scan" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/scan_FaaST.png">
+          <h3 id="item-scan-name" class="product-name"><strong>1 x</strong> Coca-Cola, Mexican Coke 12 oz. (355ml), Heck... Pack of 6</h3>
+        </div>
+
+        <div id="item-quantity" style="display: none;">
+          <h3 class="title"><strong>How many</strong> did you pick?</h3>
+          <form class="form-group label-floating" id="quantity-confirm-form">
+              <input class="form-control" id="place-item-quantity" placeholder="" type="number" style="text-align:center">
+          </form>
+          <a href="javascript:void(0)" class="btn btn-raised btn-primary bottom" id="quantity-confirm-btn">Continue</a>
+        </div>
+
+        <div id="item-place" style="display: none;">
+          <h4 class="title">Place <strong><span id="item-place-item">1 item</span></strong> in <strong>cart</strong>, then<br><strong>scan cart</strong></h4>
+          <div class="scan-target">
+            <div class="barcode-tag">
+              <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/barcode_FaaST.png">
+              <img class="barcode-tag-scan" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/scan_FaaST.png">
+            </div>
+          </div>
+        </div>
+
+        <div id="full-screen-success" class="full-screen-success">
+          <div class="full-screen-icon">
+            <img src=" https://improvement-ninjas.amazon.com/s3files/s3get.cgi/ic_done_white_128px.svg">
+          </div>
+          <div class="full-screen-message">
+            Picking complete
+          </div>
+          <div class="bottom pick-complete-continue">
+            <a href="javascript:void(0)" class="btn btn-raised btn-primary" id="pick-complete-continue">Continue</a>
+          </div>
+        </div>
+
+        <div id="cart-setup-bottom" class="bottom bottom-bin">
+          <div class="bin-bottom" id="bottom-bin" style="height: 45px; display: none;">
+            <span class="bin-left">
+              <span class="bin-bold">BIN</span>
+              <span class="label label-success">B<span class="asile-number-digit">17</span></span>
+              <span class="label label-info">D<span class="bin-number-digit">260</span></span>
+            </span>
+            <span id="priority" class="label label-warning bin-right">Priority</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+</body>
+
+<script src="login_vflex_320.js"></script>
+
+<!-- Open source code -->
+<script>
+  window.page = window.location.hash || "#about";
+
+  $(document).ready(function () {
+    if (window.page != "#about") {
+      $(".menu").find("li[data-target=" + window.page + "]").trigger("click");
+    }
+  });
+
+  $(window).on("resize", function () {
+    $("html, body").height($(window).height());
+    $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
+    $(".pages").height($(window).height());
+  }).trigger("resize");
+
+  $(".menu li").click(function () {
+    // Menu
+    if (!$(this).data("target")) return;
+    if ($(this).is(".active")) return;
+    $(".menu li").not($(this)).removeClass("active");
+    $(".page").not(page).removeClass("active").hide();
+    window.page = $(this).data("target");
+    var page = $(window.page);
+    window.location.hash = window.page;
+    $(this).addClass("active");
+
+
+    page.show();
+
+    var totop = setInterval(function () {
+      $(".pages").animate({scrollTop: 0}, 0);
+    }, 1);
+
+    setTimeout(function () {
+      page.addClass("active");
+      setTimeout(function () {
+        clearInterval(totop);
+      }, 1000);
+    }, 100);
+  });
+
+  function cleanSource(html) {
+    var lines = html.split(/\n/);
+
+    lines.shift();
+    lines.splice(-1, 1);
+
+    var indentSize = lines[0].length - lines[0].trim().length,
+        re = new RegExp(" {" + indentSize + "}");
+
+    lines = lines.map(function (line) {
+      if (line.match(re)) {
+        line = line.substring(indentSize);
+      }
+
+      return line;
+    });
+
+    lines = lines.join("\n");
+
+    return lines;
+  }
+
+  $("#opensource").click(function () {
+    $.get(window.location.href, function (data) {
+      var html = $(data).find(window.page).html();
+      html = cleanSource(html);
+      $("#source-modal pre").text(html);
+      $("#source-modal").modal();
+    });
+  });
+</script>
+
+<!-- Twitter Bootstrap -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Material Design for Bootstrap -->
+<script src="dist/js/material.js"></script>
+<script src="dist/js/ripples.min.js"></script>
+<script>
+  $.material.init();
+</script>
+
+
+<!-- Sliders -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+<script>
+  $(function () {
+    $.material.init();
+    $(".shor").noUiSlider({
+      start: 40,
+      connect: "lower",
+      range: {
+        min: 0,
+        max: 100
+      }
+    });
+
+    $(".svert").noUiSlider({
+      orientation: "vertical",
+      start: 40,
+      connect: "lower",
+      range: {
+        min: 0,
+        max: 100
+      }
+    });
+  });
+</script>
+
+<!-- Dropdown.js -->
+<script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
+<script>
+  $("#dropdown-menu select").dropdown();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Prime Now</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Material Design fonts -->
+  
+
+  <!-- Bootstrap -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Material Design -->
+  <link href="dist/css/bootstrap-material-design_320.css" rel="stylesheet">
+  <!-- <link href="dist/css/ripples.min.css" rel="stylesheet"> -->
+
+  <!-- Dropdown.js -->
+  <link href="jquery.dropdown.css" rel="stylesheet">
+
+  <!-- Page style -->
+  <link href="index.css" rel="stylesheet">
+  <link href="vendorFlex_320.css" rel="stylesheet">
+  <link href="login_320.css" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="jquery-1.12.1.min.js"></script>
+  
+
+</head>
+<body>
+  <div class="nav-flex">
+    <div class="navbar navbar-default" id="navbar">
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li id="menu-btn"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/ic_menu_black_36px.svg"></a></li>
+          </ul>
+          <a class="navbar-brand" id="app-title">Prime Now</a>
+          <a class="navbar-menu" id="app-menu">菜单</a>
+          <ul class="nav navbar-nav navbar-right" >
+            <li class="dropdown" id="navbar-right">
+              <a href="javascript:void(0)" class="btn btn-raised btn-tertiary dropdown-toggle" data-target="#" data-toggle="dropdown"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Problem.svg"></a>
+              <ul class="dropdown-menu">
+                <li><a href="javascript:void(0)">Action</a></li>
+                <li><a href="javascript:void(0)">Another action</a></li>
+                <li><a href="javascript:void(0)">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </div>
+
+    <div id="danger-alert" class="alert alert-dismissible alert-danger">
+        <strong>密码错误。</strong> 请重试。
+    </div>
+    <div id="success-alert" class="alert alert-dismissible alert-success">
+      <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/ic_done_white_32px.svg"><strong><span id="alert-success-message"> 拣货推车设置完毕<span></strong>
+    </div>
+    <div id="info-alert" class="alert alert-dismissible alert-info">
+      你被分布的任务是 <strong>拣货</strong>.
+    </div>
+    <div class="progress" id="main-progress">
+      <div class="progress-bar progress-bar-info" id="main-progress-bar" style="width: 0%"></div>
+    </div>
+    <div class="large-error-alert" style="display: none;">
+      <h4>货品数量应为<br><strong><span id="alert-product-quantity">2</span>件</strong></h4>
+      <p><strong>货品</strong><br><span id="alert-product-name">可口可乐碳酸饮料 玻璃瓶可口可乐汽水 500ml*6瓶</span></p>
+      <div class="bottom pick-complete-continue">
+        <a href="javascript:void(0)" class="btn btn-raised btn-primary" style="width: 100%; max-width: 500px;" id="reenterQuantity">Re-enter quantity</a>
+        <br>
+        <a href="javascript:void(0)" class="btn btn-raised btn-secondary" style="width: 100%; max-width: 500px;">Missing item</a>
+      </div>
+    </div>
+    <audio id="audiotag1" src="audio/success.wav" preload="auto"></audio>
+    <audio id="audiotag2" src="audio/confirmation.wav" preload="auto"></audio>
+    <audio id="audiotag3" src="audio/attention.wav" preload="auto"></audio>
+    <audio id="audiotag4" src="audio/error.wav" preload="auto"></audio>
+    <audio id="audiotag5" src="audio/severe-error.wav" preload="auto"></audio>
+  </div>
+  <div sytle="" id="login-main">
+    <div id="screen-size" style="position: fixed; right: 0px; bottom: 0px; color: #CCC;">
+    </div>
+    <div id="menu">
+      <ul class="nav nav-stacked flexMenu" id="main-menu">
+        <li class="menu-btn"><a href="javascript:void(0)" class="btn btn-raised btn-problem"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Problem_White.svg">  报告问题</a>
+        </li>
+        <li class="menu-divider"></li>
+        <li class="menu-normal"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/MainTasks.svg"> 主要任务<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-normal"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Inbound.svg"> 入库<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-normal" id="outbound"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Outbound.svg"> 出库<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-normal" id="inventory"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Inventory.svg"> 库存<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-normal" id="alltasks"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/AllTasks.svg"> 所有任务<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-divider"></li>
+        <li class="menu-normal" id="settings"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Settings.svg"> 你的设置<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-normal" id="signout"><a href="javascript:void(0)"><img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/Signout.svg"> 退出</a></li>
+        
+      </ul>
+      <ul class="nav nav-stacked flexMenu" id="menu-outbound">
+        <li class="menu-normal"><a href="javascript:void(0)" id="menu-more-tasks"><i class="material-icons">chevron_left</i> More Tasks</a></li>
+        <li class="menu-normal menu-half" id="pick"><a href="javascript:void(0)">Pick</a><span class="badge">50</span></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Unpack totes</a><span class="badge warning"></span></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">SLAM</a><span class="badge"></span></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Check tote</a><span class="badge"></span></li>
+      </ul>
+      <ul class="nav nav-stacked flexMenu" id="menu-settings">
+        <li class="menu-normal" id="settings-menu-back"><a href="javascript:void(0)"><i class="material-icons">chevron_left</i> Back</a></li>
+        <li class="menu-normal" id="settings-language"><a href="javascript:void(0)">Choose language<i class="material-icons navbar-right">navigate_next</i></a></li>
+        <li class="menu-normal"><a href="javascript:void(0)">Choose work preference<i class="material-icons navbar-right">navigate_next</i></a></li>
+        
+      </ul>
+      <ul class="nav nav-stacked flexMenu" id="menu-languages">
+        <li class="menu-normal" id="languages-menu-back"><a href="javascript:void(0)" ><i class="material-icons">chevron_left</i> Back</a></li>
+        <li class="menu-normal menu-half highlighted" id="english"><a href="javascript:void(0)">English</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Español</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Français</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Deutsche</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Pусский</a></li>
+        <li class="menu-normal menu-half" onclick="location.href='login_simplifiedChinese.html';"><a href="javascript:void(0)">简体中文</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">日本語</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Italiano</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Polski</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Čeština</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">हिंदी</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Português</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">မြန်မာ</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">English (UK)</a></li>
+      </ul>
+      <ul class="nav nav-stacked flexMenu" id="menu-alltasks">
+        <li class="menu-normal" id="alltasks-menu-back"><a href="javascript:void(0)" ><i class="material-icons">chevron_left</i> Back</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Blind cycle count</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Bulk move</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Check tote</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Cubiscan</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Damage out item</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">ISS stow</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Manage pallet</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Move items to cubiscan</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">New to dock</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Pick</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Received by merchant</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Receive by Ppllet</a></li>
+      </ul>
+      <ul class="nav nav-stacked flexMenu" id="menu-inventory">
+        <li class="menu-normal" id="inventory-menu-back"><a href="javascript:void(0)" ><i class="material-icons">chevron_left</i> Back</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Simple bin count</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Blind cycle count</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Damage out item</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Removal tool</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Tote diagnostic</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Bulk move</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Move items to cubiscan</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">ISS stow</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)">Cubiscan</a></li>
+        <li class="menu-normal menu-half"><a href="javascript:void(0)"></a></li>
+      </ul>
+    </div>
+    <div class="col-md-3 " id="left-col">
+      <div id="menuArrowCol">
+        <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/MenuArrow.svg" id="menuArrow">
+        <h2 id="menuArrowText">Select a task from<br>the Main Menu</h2>
+      </div>
+    </div>
+    <div class="col-md-6" id="main-screen" style="text-align: center; padding: 0px 15px;">
+      <div id="screen-size" style="position: fixed; right: 0px; bottom: 0px; color: #CCC;">
+      </div>
+      <div style="max-width: 500px; margin:auto;">
+        <div id="login" style="text-align: center;">
+          <h4 id="sign-in-title">请使用你的<br><strong>亚马逊账户</strong>登录</h4>
+          <div style="width: 100%">
+            <div class="form-group label-floating is-focused" id="form">
+              <input class="form-control" id="Input1" placeholder="电子邮箱" type="text">
+              <input class="form-control" id="pw1" placeholder="密码" type="password">
+            </div>
+          </div>
+          <a href="javascript:void(0)" class="btn btn-raised btn-primary" style="width: 100%" id="SignIn">登录</a>
+          <span><h5><a href="javascript:void(0)">忘记密码</a> &nbsp;&nbsp; <a href="javascript:void(0)">创建账号</a></h5> </span>
+        </div>
+
+        <div id="login-photo">
+          <h4>你好，<strong>姓名</strong></h4>
+          <div style="width: 160px; margin: auto;">
+            <div class="progress login-progress">
+              <div class="progress-bar progress-bar-info" id="progress-bar" style="width: 0%"></div>
+            </div>
+            <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/profilephoto.svg" >
+          </div>
+        </div>
+
+        <div id="sign-out-confirm" style="text-align: center;">
+          <h1>你确定需要退出么？</h1>
+          <div class="bottom" id="sign-out-confirm-btn">
+            <a href="javascript:void(0)" class="btn btn-raised btn-primary" style="width: 100%" id="yes-sign-out">是的，退出</a>
+            <a href="javascript:void(0)" class="btn btn-raised btn-secondary" style="width: 100%" id="no-sign-out">取消</a>
+          </div>
+        </div>
+
+        
+        <div id="pick-cart-scan" style="display: none;">
+          <h3 class="title">请扫描 <strong>拣货推车</strong></h3>
+          <div class="scan-target">
+            <div id="pick-cart-scan-barcode" class="barcode-tag">
+              <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/barcode_FaaST.png">
+              <img class="barcode-tag-scan" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/scan_FaaST.png">
+            </div>
+          </div>
+        </div>
+
+          <div id="slot-scan" style="display: none;">
+            <h3 class="title">扫描 <strong><span class="setup-current-slot">1</span>号位</strong></h3>
+            <div class="scan-target">
+              <div id="slot-scan-tag" class="slot-tag">
+                  <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/qrCode_FaaST.png">
+                  <div class="slot-number">
+                    <strong>SLOT - <span class="setup-current-slot">1<span></strong>
+                  </div>
+                  <img class="slot-tag-scan" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/scan_FaaST.png">
+              </div>
+            </div>
+          </div>
+          <div id="add-bag-scan" style="display: none;">
+            <h4 class="title">向<span class="setup-current-slot">1</span>号位放入一个袋子，<br>然后<strong>扫描<span class="setup-current-slot">1</span>号位里的袋子</strong></h4>
+            <div class="scan-bag" id="add-bag-scan-bag">
+              <img class="bag-img" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/brown-bag-1.svg">
+              <img class="bag-scan" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/scan_FaaST.png">
+            </div>
+          </div>
+
+          <div id="bin-scan" style="display: none;">
+            <h3 class="title">扫描 <strong>货柜</strong></h3>
+            <div id="bin-scan-qrcode" class="scan-target">
+              <div class="aisle">
+                <div class="aisle-number">
+                  B<strong><span class="asile-number-digit">17</span></strong>
+                </div>
+                <div class="tag">走道</div>
+              </div>
+              <div class="bin">
+                <img class="bin-bin" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/qrCode_FaaST.png">
+                <div class="bin-number">
+                  D<strong><span class="bin-number-digit">260</span></strong>
+                </div>
+                <div style="height: 0px;">
+                  <img class="bin-scan" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/scan_FaaST.png">
+                </div>
+                <div class="tag">货箱</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="item-scan" style="display: none;">
+            <h3 class="title">扫描 <strong>货品</strong></h3>
+            <img id="item-scan-pic" class="product-pic" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/pick-1.jpg"></img><br>
+            <img class="item-scan-barcode" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/ItemBarcode.png">
+            <img class="item-scan" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/scan_FaaST.png">
+            <h3 id="item-scan-name" class="product-name"><strong>1 x</strong> Coca-Cola, Mexican Coke 12 oz. (355ml), Heck... Pack of 6</h3>
+          </div>
+
+          <div id="item-place" style="display: none;">
+            <h4 class="title">将<strong><span id="item-place-item">1件</span></strong>货品放入<strong><span class="item-place-bag">2</span>号袋</strong>，<br>然后<strong>扫描<span class="item-place-bag">2</span>号袋</strong></h4>
+            <div class="number-item-dest" >
+              <div class="upper">
+                <strong><span class="number-item-dest-number">1</span></strong><span style="position: relative; top: 20px; font-size: 40px;">x</span>
+                <img class="product-pic number-item-dest-pic" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/pick-1.jpg"></img>
+                <img class="number-item-dest-arrow" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/DownArrow_pick.svg"></img>
+              </div>
+              <div class="btm">
+                <img class="number-item-dest-scan-bag" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/scan_FaaST.png">
+                <img class="bag-img number-item-dest-bag" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/brown-bag-2.svg">
+              </div>
+            </div>
+          </div>
+
+          <div id="item-quantity" style="display: none;">
+            <h3 class="title">你拣了<strong>几件</strong>货品？</h3>
+            <div class="form-group label-floating">
+              <input class="form-control" id="place-item-quantity" placeholder="" type="text" style="text-align:center">
+            </div>
+            <a href="javascript:void(0)" class="btn btn-raised btn-primary bottom" id="quantity-confirm-btn">Continue</a>
+          </div>
+          
+          <div id="full-screen-success" class="full-screen-success">
+            <div class="full-screen-icon">
+              <img src=" https://improvement-ninjas.amazon.com/s3files/s3get.cgi/ic_done_white_128px.svg">
+            </div>
+            <div class="full-screen-message">
+              拣货完成
+            </div>
+            <div class="bottom pick-complete-continue">
+              <a href="javascript:void(0)" class="btn btn-raised btn-primary" id="pick-complete-continue">继续</a>
+            </div>
+          </div>
+
+          <div id="slam-scan" style="display: none;">
+            <h3 class="title">扫描 <strong>SLAM台</strong></h3>
+            <div class="scan-target" id="scan-slam-scan">
+              <div class="barcode-slam">
+                <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/barcode_FaaST.png">
+                <img class="barcode-tag-scan" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/scan_FaaST.png">
+                <div class="barcode-slam-text">SLAM STATION</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="bag-scan" style="display: none;">
+            <h3 class="title">扫描 <strong><span class="slam-current-bag">1</span>号袋</strong></h3>
+            <div class="scan-bag" id="bag-scan-bag">
+              <img class="slam-bag-img bag-img" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/brown-bag-1.svg">
+              <img class="bag-scan" src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/scan_FaaST.png">
+            </div>
+          </div>
+
+          <div id="slam-quantity" style="display: none;">
+            <h3 class="title">袋子里有<strong>几件物品</strong>？</h3>
+            <div class="form-group label-floating">
+              <input class="form-control" id="slam-item-quantity" placeholder="" type="text" style="text-align:center">
+            </div>
+            <a href="javascript:void(0)" class="btn btn-raised btn-primary bottom" id="quantity-check-btn">继续</a>
+          </div>
+
+          <div id="slam-label" style="display: none;">
+            <h3 class="title">粘贴 <strong>重物标示</strong></h3>
+            <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/heavy-label.svg" style="width: 68%;"></img>
+            <a href="javascript:void(0)" class="btn btn-raised btn-primary bottom" id="slam-label-continue">继续</a>
+          </div>
+
+          <div id="slam-print" style="display: none;">
+            <h4 class="title">将 <strong>货品</strong> 摆放整齐</h4>
+            <img src="https://improvement-ninjas.amazon.com/s3files/s3get.cgi/arrange-item.svg" style="width: 100px;"></img>
+            <a href="javascript:void(0)" class="btn btn-raised btn-success bottom" id="slam-print-continue">打印标签</a>
+          </div>
+
+          <div id="cart-setup-bottom" class="bottom bottom-bin">
+            <div class="bin-bottom" id="bottom-bin" style="height: 45px; display: none;">
+              <span class="bin-left">
+                <span class="bin-bold">货箱</span>
+                <span class="label label-success">B<span class="asile-number-digit">17</span></span>
+                <span class="label label-info">D<span class="bin-number-digit">260</span></span>
+              </span>
+              <span id="priority" class="label label-warning bin-right">优先</span>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+    
+  </div>
+  
+  
+</body>
+
+<script src="login_SC_320.js"></script>
+
+<!-- Open source code -->
+<script>
+  window.page = window.location.hash || "#about";
+
+  $(document).ready(function () {
+    if (window.page != "#about") {
+      $(".menu").find("li[data-target=" + window.page + "]").trigger("click");
+    }
+  });
+
+  $(window).on("resize", function () {
+    $("html, body").height($(window).height());
+    $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
+    $(".pages").height($(window).height());
+  }).trigger("resize");
+
+  $(".menu li").click(function () {
+    // Menu
+    if (!$(this).data("target")) return;
+    if ($(this).is(".active")) return;
+    $(".menu li").not($(this)).removeClass("active");
+    $(".page").not(page).removeClass("active").hide();
+    window.page = $(this).data("target");
+    var page = $(window.page);
+    window.location.hash = window.page;
+    $(this).addClass("active");
+
+
+    page.show();
+
+    var totop = setInterval(function () {
+      $(".pages").animate({scrollTop: 0}, 0);
+    }, 1);
+
+    setTimeout(function () {
+      page.addClass("active");
+      setTimeout(function () {
+        clearInterval(totop);
+      }, 1000);
+    }, 100);
+  });
+
+  function cleanSource(html) {
+    var lines = html.split(/\n/);
+
+    lines.shift();
+    lines.splice(-1, 1);
+
+    var indentSize = lines[0].length - lines[0].trim().length,
+        re = new RegExp(" {" + indentSize + "}");
+
+    lines = lines.map(function (line) {
+      if (line.match(re)) {
+        line = line.substring(indentSize);
+      }
+
+      return line;
+    });
+
+    lines = lines.join("\n");
+
+    return lines;
+  }
+
+  $("#opensource").click(function () {
+    $.get(window.location.href, function (data) {
+      var html = $(data).find(window.page).html();
+      html = cleanSource(html);
+      $("#source-modal pre").text(html);
+      $("#source-modal").modal();
+    });
+  });
+</script>
+
+<!-- Twitter Bootstrap -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Material Design for Bootstrap -->
+<script src="dist/js/material.js"></script>
+<script src="dist/js/ripples.min.js"></script>
+<script>
+  $.material.init();
+</script>
+
+
+<!-- Sliders -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+<script>
+  $(function () {
+    $.material.init();
+    $(".shor").noUiSlider({
+      start: 40,
+      connect: "lower",
+      range: {
+        min: 0,
+        max: 100
+      }
+    });
+
+    $(".svert").noUiSlider({
+      orientation: "vertical",
+      start: 40,
+      connect: "lower",
+      range: {
+        min: 0,
+        max: 100
+      }
+    });
+  });
+</script>
+
+<!-- Dropdown.js -->
+<script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
+<script>
+  $("#dropdown-menu select").dropdown();
+</script>
+
+</body>
+</html>

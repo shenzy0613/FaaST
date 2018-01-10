@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>FaaST CSS Framework for Legacy Handscanners</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Material Design fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Material Design -->
+  <link href="dist/css/bootstrap-material-design_320.css" rel="stylesheet">
+  <!-- <link href="dist/css/ripples.min.css" rel="stylesheet"> -->
+
+  <!-- Dropdown.js -->
+  <link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
+
+  <!-- Page style -->
+  <link href="index.css" rel="stylesheet">
+  <link href="vendorFlex_320.css" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+</head>
+<body>
+  <div class="FlexSection">
+    <h1><strong>FaaST CSS Framework for Legacy Handscanners</strong></h1>
+  </div>
+  <div class="FlexSection" id="buttons">
+    <a href="javascript:void(0)" class="btn btn-raised btn-primary">Button Primary</a>
+    <a href="javascript:void(0)" class="btn btn-raised btn-secondary">Button Secondary</a>
+    <a href="javascript:void(0)" class="btn btn-raised btn-tertiary">Button Tertiary</a>
+    <a href="javascript:void(0)" class="btn btn-raised btn-problem">Button Problem</a>
+    <a href="javascript:void(0)" class="btn btn-raised btn-success">Button Success</a>
+  </div>
+  <div class="FlexSection">
+    <div class="btn-group">
+      <a href="bootstrap-elements.html" data-target="#" class="btn btn-default btn-raised dropdown-toggle" data-toggle="dropdown">Dropdown<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="javascript:void(0)">Action</a></li>
+        <li><a href="javascript:void(0)">Another action</a></li>
+        <li><a href="javascript:void(0)">Something else here</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div style="width: 320px">
+      <div class="form-group label-floating">
+        <input class="form-control" id="Input1" placeholder="Email" type="text">
+        <input class="form-control" id="pw1" placeholder="Password" type="password">
+      </div>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div style="width: 320px">
+      <div class="form-group label-floating">
+        <input class="form-control" id="Input2" placeholder="Bin barcode" type="text">
+      </div>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <span class="label label-white">P-1</span>
+    <span class="label label-white">A135</span>
+    <span class="label label-a">A17</span>
+    <span class="label label-b">B17</span>
+    <span class="label label-c">C17</span>
+    <span class="label label-d">D17</span>
+    <span class="label label-e">E17</span>
+    <span class="label label-f">F17</span>
+    <span class="label label-g">G17</span>
+    <span class="label label-h">H17</span>
+    <span class="label label-i">I17</span>
+  </div>
+  <div class="FlexSection">
+    <ul class="breadcrumb" >
+      <li class="active">Home</li>
+    </ul>
+    <ul class="breadcrumb" >
+      <li><a href="javascript:void(0)">Home</a></li>
+      <li class="active">Library</li>
+    </ul>
+    <ul class="breadcrumb" >
+      <li><a href="javascript:void(0)">Home</a></li>
+      <li><a href="javascript:void(0)">Library</a></li>
+      <li class="active">Data</li>
+    </ul>
+  </div>
+  <div class="FlexSection">
+    <h3>h3 Example heading</h3>
+    <h4>h4 Example heading</h4>
+    <h5>h5 Example heading</h5>
+  </div>
+  <div class="FlexSection">
+    <ul class="nav nav-pills">
+      <li class="active"><a href="javascript:void(0)">Inbox<span class="badge">50</span></a></li>
+    </ul>
+  </div>
+  <div class="FlexSection">
+    <div class="alert alert-dismissible alert-success">
+      <i class="material-icons">done</i><strong> That was nice.</strong>
+    </div>
+    <div class="alert alert-dismissible alert-info">
+      You should probably <strong>know this.</strong>
+    </div>
+    <div class="alert alert-dismissible alert-warning">
+      <strong>Hey!</strong> Something bad might happen.
+    </div>
+    <div class="alert alert-dismissible alert-danger">
+      <strong>Oh no!</strong> Try again.
+    </div>
+    <div class="alert alert-dismissible alert-problem">
+      <i class="material-icons">done</i><strong> The problem is reported.</strong>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="progress">
+      <div class="progress-bar progress-bar-info" style="width: 50%"></div>
+    </div>
+  </div>
+  
+  <div class="FlexSection">
+    <div class="radio radio-primary">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+        Option one is this
+      </label>
+    </div>
+    <div class="radio radio-primary">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+        Option two can be something else
+      </label>
+    </div>
+    <div class="radio radio-primary">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+        Option three can be something really long
+      </label>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox">   Checkbox 1
+      </label>
+      <label>
+        <input type="checkbox">   Checkbox 2
+      </label>
+      <label>
+        <input type="checkbox" disabled>   Disabled Checkbox
+      </label>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="navbar navbar-default">
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="javascript:void(0)"><i class="material-icons">menu</i></a></li>
+          </ul>
+          <a class="navbar-brand">AFT Lite</a>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="btn btn-raised btn-tertiary"><img src="img/Problem.svg"></a>
+
+              <!-- <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="material-icons">feedback</i></a> -->
+              <ul class="dropdown-menu">
+                <li><a href="javascript:void(0)">Action</a></li>
+                <li><a href="javascript:void(0)">Another action</a></li>
+                <li><a href="javascript:void(0)">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="navbar navbar-success">
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="javascript:void(0)"><i class="material-icons">menu</i></a></li>
+          </ul>
+          <a class="navbar-brand">AFT Lite</a>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="btn btn-raised btn-tertiary"><img src="img/Problem.svg"></a>
+
+              <!-- <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="material-icons">feedback</i></a> -->
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="navbar navbar-warning">
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="javascript:void(0)"><i class="material-icons">menu</i></a></li>
+          </ul>
+          <a class="navbar-brand">Sign out</a>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="material-icons">cancel</i></a>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="navbar navbar-danger">
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="javascript:void(0)"><i class="material-icons">menu</i></a></li>
+          </ul>
+          <a class="navbar-brand">AFT Lite</a>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="btn btn-raised btn-tertiary"><img src="img/Problem.svg"></a>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="navbar navbar-info">
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="javascript:void(0)"><i class="material-icons">menu</i></a></li>
+          </ul>
+          <a class="navbar-brand">AFT Lite</a>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="btn btn-raised btn-tertiary"><img src="img/Problem.svg"></a>
+
+              <!-- <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="material-icons">feedback</i></a> -->
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="navbar navbar-priority">
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="javascript:void(0)"><i class="material-icons">menu</i></a></li>
+          </ul>
+          <a class="navbar-brand">Priority order</a>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="btn btn-raised btn-tertiary"><img src="img/Problem.svg"></a>
+
+              <!-- <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="material-icons">feedback</i></a> -->
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="navbar navbar-warning">
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="javascript:void(0)"><i class="material-icons">menu</i> </a></li>
+          </ul>
+          <a class="navbar-menu">Menu</a>
+          
+        </div>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <ul class="nav nav-stacked flexMenu" >
+      <li class="menu-btn"><a href="javascript:void(0)" class="btn btn-raised btn-problem"><i class="material-icons">feedback</i>  Report problem</a>
+      </li>
+      <li class="menu-divider"></li>
+      <li class="menu-normal"><a href="javascript:void(0)"><img src="img/MainTasks.svg"> Main Tasks<i class="material-icons navbar-right">navigate_next</i></a></li>
+      <li class="menu-normal"><a href="javascript:void(0)"><img src="img/Inbound.svg"> Inbound<i class="material-icons navbar-right">navigate_next</i></a></li>
+      <li class="menu-normal"><a href="javascript:void(0)"><img src="img/Outbound.svg"> Outbound<i class="material-icons navbar-right">navigate_next</i></a></li>
+      <li class="menu-normal"><a href="javascript:void(0)"><img src="img/Inventory.svg"> Inventory<i class="material-icons navbar-right">navigate_next</i></a></li>
+      <li class="menu-normal"><a href="javascript:void(0)"><img src="img/AllTasks.svg"> All tasks<i class="material-icons navbar-right">navigate_next</i></a></li>
+      <li class="menu-divider"></li>
+      <li class="menu-normal"><a href="javascript:void(0)"><img src="img/Settings.svg"> Your settings<i class="material-icons navbar-right">navigate_next</i></a></li>
+      <li class="menu-normal"><a href="javascript:void(0)"><img src="img/Signout.svg"> Sign out</a></li>
+    </ul>
+  </div>
+  <div class="FlexSection">
+    <ul class="nav nav-stacked flexMenu" >
+      <li class="menu-normal"><a href="javascript:void(0)" id="menu-more-tasks"><i class="material-icons">chevron_left</i> More Tasks</a></li>
+      <li class="menu-normal menu-half"><a href="javascript:void(0)">Pick</a><span class="badge"></span></li>
+      <li class="menu-normal menu-half"><a href="javascript:void(0)">Stow</a><span class="badge warning">86</span></li>
+      <li class="menu-normal menu-half"><a href="javascript:void(0)">SLAM</a><span class="badge">50</span></li>
+      <li class="menu-normal menu-half"><a href="javascript:void(0)">Build cycle count</a><span class="badge">32</span></li>
+      <li class="menu-normal menu-half"><a href="javascript:void(0)">Simple bin count</a><span class="badge warning">69</span></li>
+    </ul>
+  </div>
+  <div class="FlexSection">
+    <ul class="nav nav-stacked flexMenu" >
+      <li class="menu-normal menu-half"><a href="javascript:void(0)">Missing item<i class="material-icons navbar-right">navigate_next</i></a></li>
+      <li class="menu-normal menu-half"><a href="javascript:void(0)">Damaged item<i class="material-icons navbar-right">navigate_next</i></a></li>
+      <li class="menu-normal menu-half"><a href="javascript:void(0)">Unscannable barcode<i class="material-icons navbar-right">navigate_next</i></a></li>
+      <li class="menu-normal menu-half"><a href="javascript:void(0)">Other problems<i class="material-icons navbar-right">navigate_next</i></a></li>
+    </ul>
+  </div>
+  <div class="FlexSection">
+    <div class="bin-bottom" style="height: 50px;">
+      <span class="bin-left">
+        <span class="bin-bold">BIN</span>
+        <span class="label label-white">P-1</span>
+        <span class="label label-white">B17</span>
+        <span class="label label-d">D260</span>
+      </span>
+      <span class="label label-warning bin-right">Priority</span>
+    </div>
+  </div>
+  <div class="FlexSection" style="display: inline;">
+    <div class="scan-target">
+      <div class="bin">
+        <div class="bin-number bin-a">
+          A<strong>260</strong>
+        </div>
+        <div class="tag">Bin</div>
+      </div>
+      <div class="bin">
+        <div class="bin-number bin-b">
+          B<strong>260</strong>
+        </div>
+        <div class="tag">Bin</div>
+      </div>
+      <div class="bin">
+        <div class="bin-number bin-c">
+          C<strong>260</strong>
+        </div>
+        <div class="tag">Bin</div>
+      </div>
+      <br>
+      <div class="bin">
+        <div class="bin-number bin-d">
+          D<strong>260</strong>
+        </div>
+        <div class="tag">Bin</div>
+      </div>
+      <div class="bin">
+        <div class="bin-number bin-e">
+          E<strong>260</strong>
+        </div>
+        <div class="tag">Bin</div>
+      </div>
+      <div class="bin">
+        <div class="bin-number bin-f">
+          F<strong>260</strong>
+        </div>
+        <div class="tag">Bin</div>
+      </div>
+      <br>
+      <div class="bin">
+        <div class="bin-number bin-g">
+          G<strong>260</strong>
+        </div>
+        <div class="tag">Bin</div>
+      </div>
+      <div class="bin">
+        <div class="bin-number bin-h">
+          H<strong>260</strong>
+        </div>
+        <div class="tag">Bin</div>
+      </div>
+      <div class="bin">
+        <div class="bin-number bin-i">
+          I<strong>260</strong>
+        </div>
+        <div class="tag">Bin</div>
+      </div>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="scan-target">
+      <div class="floor">
+        <div class="floor-number">
+          P-1
+        </div>
+        <div class="tag">Floor</div>
+      </div>
+      <div class="aisle">
+        <div class="aisle-number">
+          B<strong>170</strong>
+        </div>
+        <div class="tag">Aisle</div>
+      </div>
+      <div class="bin">
+        <div class="bin-number bin-d">
+          D<strong>260</strong>
+        </div>
+        <div class="tag">Bin</div>
+      </div>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="scan-target">
+      <div class="slot-tag">
+        <img src="img/qrCode.png">
+        <div class="slot-number">
+          <strong>SLOT – <span>2<span></strong>
+        </div>
+        <img class="slot-tag-scan" src="img/scan.png">
+      </div>
+
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="scan-target">
+      <div class="slot-tag hazmat">
+        <div class="slot-number">
+          <strong>HAZMAT</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="scan-target">
+      <div class="barcode-tag">
+        <img src="img/barcode.png">
+        <img class="barcode-tag-scan" src="img/scan.png">
+      </div>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="scan-target">
+      <div class="barcode-slam">
+        <img src="img/barcode.png">
+        <img class="barcode-tag-scan" src="img/scan.png">
+        <div class="barcode-slam-text">SLAM STATION</div>
+      </div>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="scan-target">
+      <div class="barcode-sp00">
+        <img src="img/barcode.png">
+        <img class="barcode-tag-scan" src="img/scan.png">
+        <div class="barcode-sp00-text">sp00xxxx</div>
+      </div>
+
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="scan-bag">
+      <img class="bag-img" src="img/brown-bag-1.svg"><br>
+      <img class="bag-scan" src="img/scan.png">
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="full-screen-success" style="height: 180px;">
+      <div class="full-screen-icon">
+        <i class="material-icons">done</i>
+      </div>
+      <div class="full-screen-message">
+        Picking complete
+      </div>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="large-alert large-error-alert">
+      <h3>The quantity should be <br><strong><span id="alert-product-quantity">2</span> items</strong></h3>
+      <p><strong>ITEM</strong><br><span id="alert-product-name">Coca-Cola, Mexican Coke 12oz (355ml), ……Pack of 6</span></p>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="large-alert large-warning-alert">
+      <h3>Ask a <strong>Problem Solver</strong> for help</h3>
+      <p>No replacement for this item.<br>Bring the bags to Problem Solve</p>
+      <p><strong>ITEM</strong><br><span>Csp00x97118, sp00sx977a1</span></p>
+      <p><strong>MISSING ITEM</strong><br><span id="alert-product-name">Coca-Cola, Mexican Coke 12oz (355ml), ……Pack of 6</span></p>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="large-alert large-success-alert">
+      <h3><strong>1 missing item</strong> found</h3>
+      <p>
+        1. Set the item aside<br>
+        2. Coutinue scanning items in the bin
+      </p>
+      <p><strong>ITEM</strong><br><span id="alert-product-name">Coca-Cola, Mexican Coke 12oz (355ml), ……Pack of 6</span></p>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="large-alert large-success-alert">
+      <h3><strong>All missing items</strong> found</h3>
+      <p>
+        1. Set the item aside<br>
+        2. Put back any other items that were removed from the bin
+      </p>
+      <p><strong>ITEM</strong><br><span id="alert-product-name">Coca-Cola, Mexican Coke 12oz (355ml), ……Pack of 6</span></p>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <div class="full-screen-scan-all">
+      <div class="full-screen-icon">
+        <span class="number">0</span> items scanned
+      </div>
+    </div>
+  </div>
+
+  <div class="FlexSection" style="height: 210px; width: 320px;">
+    <div class="number-item-dest">
+      <div class="upper">
+        <strong><span class="number-item-dest-number">2</span></strong><i class="material-icons">clear</i>
+        <img class="product-pic number-item-dest-pic" src="img/pick-1.jpg"></img>
+        <img class="number-item-dest-arrow" src="img/DownArrow_pick.svg"></img>
+      </div>
+      <div class="btm">
+        <img class="number-item-dest-scan-bag" src="img/scan.png">
+        <img class="number-item-dest-bag" class="bag-img" src="img/brown-bag-2.svg">
+      </div>
+    </div>
+  </div>
+  <div class="FlexSection" style="height: 210px; width: 320px;">
+    <div class="number-item-dest">
+      <div class="upper">
+        <strong><span class="number-item-dest-number">2</span></strong><i class="material-icons">clear</i>
+        <img class="product-pic number-item-dest-pic" src="img/pick-1.jpg"></img>
+        <img class="number-item-dest-arrow" src="img/DownArrow_pick.svg"></img>
+      </div>
+      <div class="btm">
+        <img class="number-item-dest-scan-tout" src="img/scan.png">
+        <img class="number-item-dest-tout tout-img" src="img/tout.svg">
+      </div>
+    </div>
+  </div>
+  <div class="FlexSection" style="text-align: center;">
+    <div id="item-scan" >
+      <img id="item-scan-pic" class="product-pic" src="img/pick-1.jpg"></img><br>
+      <img class="item-scan-barcode" src="img/ItemBarcode.png">
+      <img class="item-scan" src="img/scan_FaaST.png">
+      <p id="item-scan-name" class="product-name"><strong>1 x</strong> Coca-Cola, Mexican Coke 12 oz. (355ml), Heck... Pack of 6</p>
+    </div>
+  </div>
+  <div class="FlexSection">
+    <h2>Sounds</h2>
+    <p>Press button to hear the sound</p>
+    <audio id="audiotag1" src="audio/success.wav" preload="auto"></audio>
+    <audio id="audiotag2" src="audio/confirmation.wav" preload="auto"></audio>
+    <audio id="audiotag3" src="audio/attention.wav" preload="auto"></audio>
+    <audio id="audiotag4" src="audio/error.wav" preload="auto"></audio>
+    <audio id="audiotag5" src="audio/severe-error.wav" preload="auto"></audio>
+    <a href="javascript:play_single_sound('1');" class="btn btn-raised btn-tertiary">Success</a>
+    <a href="javascript:play_single_sound('2');" class="btn btn-raised btn-tertiary">Confirmation</a>
+    <a href="javascript:play_single_sound('3');" class="btn btn-raised btn-tertiary">Attention</a>
+    <a href="javascript:play_single_sound('4');" class="btn btn-raised btn-tertiary">Error</a>
+    <a href="javascript:play_single_sound('5');" class="btn btn-raised btn-tertiary">Severe Error</a>
+  </div>
+</body>
+
+<script src="keyboard.js"></script>
+<script>
+  $(window).resize(function(){
+    $("#screen-width").html($("#buttons").width()+" px");
+  });
+</script>
+
+<!-- Open source code -->
+<script>
+  window.page = window.location.hash || "#about";
+
+  $(document).ready(function () {
+    if (window.page != "#about") {
+      $(".menu").find("li[data-target=" + window.page + "]").trigger("click");
+    }
+  });
+
+  $(window).on("resize", function () {
+    $("html, body").height($(window).height());
+    $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
+    $(".pages").height($(window).height());
+  }).trigger("resize");
+
+  $(".menu li").click(function () {
+    // Menu
+    if (!$(this).data("target")) return;
+    if ($(this).is(".active")) return;
+    $(".menu li").not($(this)).removeClass("active");
+    $(".page").not(page).removeClass("active").hide();
+    window.page = $(this).data("target");
+    var page = $(window.page);
+    window.location.hash = window.page;
+    $(this).addClass("active");
+
+
+    page.show();
+
+    var totop = setInterval(function () {
+      $(".pages").animate({scrollTop: 0}, 0);
+    }, 1);
+
+    setTimeout(function () {
+      page.addClass("active");
+      setTimeout(function () {
+        clearInterval(totop);
+      }, 1000);
+    }, 100);
+  });
+
+  function cleanSource(html) {
+    var lines = html.split(/\n/);
+
+    lines.shift();
+    lines.splice(-1, 1);
+
+    var indentSize = lines[0].length - lines[0].trim().length,
+        re = new RegExp(" {" + indentSize + "}");
+
+    lines = lines.map(function (line) {
+      if (line.match(re)) {
+        line = line.substring(indentSize);
+      }
+
+      return line;
+    });
+
+    lines = lines.join("\n");
+
+    return lines;
+  }
+
+  $("#opensource").click(function () {
+    $.get(window.location.href, function (data) {
+      var html = $(data).find(window.page).html();
+      html = cleanSource(html);
+      $("#source-modal pre").text(html);
+      $("#source-modal").modal();
+    });
+  });
+
+  function play_single_sound(i) {
+    document.getElementById('audiotag'+i).play();
+  }
+</script>
+
+<!-- Twitter Bootstrap -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Material Design for Bootstrap -->
+<script src="dist/js/material.js"></script>
+<script src="dist/js/ripples.min.js"></script>
+<script>
+  $.material.init();
+</script>
+
+
+<!-- Sliders -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+<script>
+  $(function () {
+    $.material.init();
+    $(".shor").noUiSlider({
+      start: 40,
+      connect: "lower",
+      range: {
+        min: 0,
+        max: 100
+      }
+    });
+
+    $(".svert").noUiSlider({
+      orientation: "vertical",
+      start: 40,
+      connect: "lower",
+      range: {
+        min: 0,
+        max: 100
+      }
+    });
+  });
+</script>
+
+<!-- Dropdown.js -->
+<script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
+<script>
+  $("#dropdown-menu select").dropdown();
+</script>
+
+</body>
+</html>
